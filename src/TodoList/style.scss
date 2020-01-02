@@ -1,0 +1,49 @@
+//color
+$white :#fff;
+//mixin
+@mixin virtual ($align:left, $vertical:top){
+    display:inline-block;
+    position: absolute;
+    #{$align}:0;
+    #{$vertical}:0;
+    content:"";
+}
+html,body {
+    height:100%;
+}
+#root {
+    height:100%;
+    display:flex;
+    align-items: center;
+}
+.todo-wrap {
+    width:600px;
+    height:800px;
+    margin:0 auto;
+    background-color:#f6f6f6;
+}
+.todo-header {
+    position:relative;
+    padding:30px 0;
+    text-align: center;
+    background-color:$white;
+    .todo-title {
+        display:inline-block;
+        color:#333;
+        font-size:48px;
+        line-height:50px;
+    }
+    &::after {
+        @include virtual($vertical:bottom);
+            width:100%;
+            height:1px;
+            box-shadow: 1px 1px 3px #efefef;
+    }
+}
+.todo-list {
+    padding:30px 36px;
+}
+
+.todoAdd {
+    
+}

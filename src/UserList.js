@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-function User({user}){
-    const {id , userNmae , email} = user;
+function User({user , onRemove}){
+    const {id , username , email} = user;
     return(
         <div>
-            <b>{userNmae} {email}</b>
+            <b>{username} {email}</b>
+            <button onClick = {() => onRemove(id)}>삭제</button>  
         </div>
     );
 }
-function UserList({users}){
+function UserList({users , onRemove}){
     return(
         <div>
         {
             users.map(
-                user => (<User user={user} key={user.id}/>)
+                user => (<User user={user} key={user.id} onRemove={onRemove}/>)
             )
         }
         </div>
