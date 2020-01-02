@@ -1,25 +1,19 @@
 import React from 'react';
-function List({todo}){
+function List({todos}){
     return(
         <li>
-            {todo.todo}
+            {todos.todo}
         </li>
     )
 }
 function TodoList(){
-    const todos = [
-        {
-            id:0,
-            todo:"go home",
-            date:"2021"
-        },
-    ]
+    const [todos ,setTodo] = ([
+        
+    ])
     return(
-        <ul className="todo-list">
-            {
-                todos.map(todo => <List todo={todo} key={todo.id}/>)
-            }
-        </ul>
+       <ul className="todo-list">
+           <List todos={todos}></List>
+       </ul>
     );
 }
 export default TodoList;

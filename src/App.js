@@ -6,11 +6,27 @@ import './TodoList/reset.css';
 import './TodoList/style.scss';
 
 function App() {
+  const [inputs , setInputs] = useState({
+    title:'',
+  })
+  const onChange = (e) => {
+    const {value,name} = e.target;
+    setInputs({
+      ...inputs,
+      [name]:value
+    })
+  }
+  const addTodo = ()=>{
+    const todo = {
+      title:'',
+    };
+    
+  }
   return(
     <div className="todo-wrap">
       <TodoHeader/>
       <TodoList></TodoList>
-      <TodoAdd></TodoAdd>
+      <TodoAdd onChange={onChange} addTodo={addTodo} title={inputs.title}></TodoAdd>
     </div>
   )
 }
